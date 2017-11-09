@@ -9,6 +9,9 @@
 	<bean id="helloController" class="yong.controller.HelloController"/>
 	<bean id="MemoController" class="yong.controller.MemoController"/>
 	<bean id="MemberController" class="yong.controller.MemberController"/>
+	<bean id="IndexController" class="yong.controller.IndexController"/>
+	<bean id="LoginController" class="yong.controller.LoginController"></bean>
+	
 	
 	<!-- service -->
 	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"></bean>
