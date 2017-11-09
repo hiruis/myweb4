@@ -28,6 +28,7 @@
 	<li><a href="memoWrite.do">메모작성</a></li>
 	<li><a href="email.do">발송</a></li>
 	<li><a href="memberJoin.do">회원가입</a></li>
+	<li><a href="orderForm.do">편의점발주폼화면</a></li>
 </ul>
 </body>
 </html>

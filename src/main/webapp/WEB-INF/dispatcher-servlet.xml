@@ -11,7 +11,7 @@
 	<bean id="MemberController" class="yong.controller.MemberController"/>
 	<bean id="IndexController" class="yong.controller.IndexController"/>
 	<bean id="LoginController" class="yong.controller.LoginController"></bean>
-	
+	<bean id="OrderController" class="yong.controller.OrderController"></bean>
 	
 	<!-- service -->
 	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"></bean>

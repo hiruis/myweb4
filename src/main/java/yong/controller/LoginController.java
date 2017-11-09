@@ -1,5 +1,7 @@
 package yong.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +29,23 @@ public class LoginController {
 		
 	}
 	@RequestMapping(value="login.do",method=RequestMethod.POST)
-	public  ModelAndView memberLogin(MemberDTO dto,HttpSession session) {
+	public  ModelAndView memberLogin(MemberDTO dto,HttpSession session,String idsave,HttpServletResponse response) {
 		int result=memberDao.memberLogin(dto);
 		ModelAndView mav = new ModelAndView();
 		String msg="";
 		if(result==0) {
 			msg = "로그인되었습니다.";
 			session.setAttribute("id", dto.getId());
-			
+			if(!(idsave==null)) {
+				Cookie cik = new Cookie("idsave", dto.getId());
+				cik.setMaxAge(60*60*24);
+				response.addCookie(cik);
+			}else {
+				
+				Cookie cik = new Cookie("idsave", "");
+				cik.setMaxAge(0);
+				response.addCookie(cik);
+			}
 		}else if(result==1){
 			msg="아이디나 비밀번호가 정보가 옳지않습니다.";
 		}else if(result==2) {
