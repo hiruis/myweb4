@@ -13,11 +13,13 @@
 	<bean id="LoginController" class="yong.controller.LoginController"></bean>
 	<bean id="OrderController" class="yong.controller.OrderController"></bean>
 	<bean id="ParamController" class="yong.controller.ParamController"></bean>
+	<bean id="MapsController" class="test.controller.MapsController"/>
 	
 	<!-- service -->
 	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"></bean>
 	<bean id="memberDao" class="yong.join.model.MemberDAOImple"/>
 	<bean id="emailTest" class="yong.test.emailTest"/>	
+	<bean id="mapsDao" class="yong.test.MapsDAO"/>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"/>
