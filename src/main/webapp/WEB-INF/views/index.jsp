@@ -29,6 +29,11 @@
 	<li><a href="email.do">발송</a></li>
 	<li><a href="memberJoin.do">회원가입</a></li>
 	<li><a href="orderForm.do">편의점발주폼화면</a></li>
+	<li><a href="paramTest.do?str=spring&idx=3">파라미터 테스트</a></li>
+	<li><a href="cookieView.do">쿠키확인하기</a></li>
+	<li><a href="cookieMake.do">쿠키저장하기</a></li>
+	<li><a href="sessionView.do">세션확인하기</a></li>
+	<li><a href="sessionMake.do">세션저장하기</a></li>
 </ul>
 </body>
 </html>

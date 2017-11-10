@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,14 +23,14 @@ public class LoginController {
 	private MemberDAO memberDao;
 	
 	@RequestMapping(value="login.do",method=RequestMethod.GET)
-	public  ModelAndView loginPage() {
+	public  ModelAndView loginPage(@CookieValue(value="saveid",defaultValue="noid")String saveid) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/memberLogin");
 		return mav;
 		
 	}
 	@RequestMapping(value="login.do",method=RequestMethod.POST)
-	public  ModelAndView memberLogin(MemberDTO dto,HttpSession session,String idsave,HttpServletResponse response) {
+	public  ModelAndView memberLogin(MemberDTO dto,HttpSession session,String idsave,HttpServletResponse response,@CookieValue(value="saveid",defaultValue="noid")String saveid) {
 		int result=memberDao.memberLogin(dto);
 		ModelAndView mav = new ModelAndView();
 		String msg="";
@@ -37,12 +38,12 @@ public class LoginController {
 			msg = "로그인되었습니다.";
 			session.setAttribute("id", dto.getId());
 			if(!(idsave==null)) {
-				Cookie cik = new Cookie("idsave", dto.getId());
+				Cookie cik = new Cookie("saveid", dto.getId());
 				cik.setMaxAge(60*60*24);
 				response.addCookie(cik);
 			}else {
 				
-				Cookie cik = new Cookie("idsave", "");
+				Cookie cik = new Cookie("saveid", "");
 				cik.setMaxAge(0);
 				response.addCookie(cik);
 			}
