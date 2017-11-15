@@ -67,9 +67,9 @@ public class LoginController {
 		session.invalidate();
 		String msg="로그아웃되었습니다.";
 		String page="index.do";
-		mav.addObject("msg",msg);
-		mav.addObject("page",page);
-		mav.setViewName("member/memberlogout");
+		//mav.addObject("msg",msg);
+		//mav.addObject("page",page);
+		mav.setViewName("redirect:/index.do");
 		return mav;
 		
 	}

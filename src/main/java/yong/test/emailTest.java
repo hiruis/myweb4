@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class emailTest {
 	@RequestMapping(value="/email.do")
-	public void Emailtest() {
+	public String Emailtest() {
 		// Mail Server 설정
 				String charSet = "utf-8";
 				String hostSMTP = "smtp.naver.com";		
@@ -20,7 +20,7 @@ public class emailTest {
 				String subject = "이메일 발송 테스트"; // 제목
 				
 				// 받는 사람 E-Mail 주소
-				String mail = "rickykise@naver.com";  // 받는 사람 email		
+				String mail = "hiruis@naver.com";  // 받는 사람 email		
 				
 				try {
 					HtmlEmail email = new HtmlEmail();
@@ -32,7 +32,7 @@ public class emailTest {
 
 					email.setAuthentication(hostSMTPid, hostSMTPpwd);
 					email.setTLS(true);
-					email.addTo(mail, charSet);
+					email.addTo(mail, "E-mail 인증",charSet);
 					email.setFrom(fromEmail, fromName, charSet);
 					email.setSubject(subject);
 					
@@ -43,5 +43,6 @@ public class emailTest {
 				} catch (Exception e) {
 					System.out.println(e);
 				}
+				return "test/email";
 	}
 }

@@ -3,17 +3,19 @@ package yong.test;
 public class MapsDTO {
 	private  int idx;
 	private String name;
-	private int xbar;
-	private int ybar;
+	private float lat;
+	private float lng;
+	private String addr;
 	public MapsDTO() {
 		super();
 	}
-	public MapsDTO(int idx, String name, int xbar, int ybar) {
+	public MapsDTO(int idx, String name, float lat, float lng, String addr) {
 		super();
 		this.idx = idx;
 		this.name = name;
-		this.xbar = xbar;
-		this.ybar = ybar;
+		this.lat = lat;
+		this.lng = lng;
+		this.addr = addr;
 	}
 	public int getIdx() {
 		return idx;
@@ -27,19 +29,23 @@ public class MapsDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getXbar() {
-		return xbar;
+	public float getLat() {
+		return lat;
 	}
-	public void setXbar(int xbar) {
-		this.xbar = xbar;
+	public void setLat(float lat) {
+		this.lat = lat;
 	}
-	public int getYbar() {
-		return ybar;
+	public float getLng() {
+		return lng;
 	}
-	public void setYbar(int ybar) {
-		this.ybar = ybar;
+	public void setLng(float lng) {
+		this.lng = lng;
 	}
-	
-	
-	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
 }

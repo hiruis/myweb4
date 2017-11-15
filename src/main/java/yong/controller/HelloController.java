@@ -23,7 +23,7 @@ public class HelloController {
 		
 		ArrayList<MapsDTO> arr = mapsDao.mapcode();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("mapslist",arr);
+		mav.addObject("msg",msg);
 		mav.setViewName("hello");
 		return mav;
 	}
